@@ -4,17 +4,41 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { BasketComponent } from './components/basket/basket.component';
+import { GoodsComponent } from './components/goods/goods.component';
+import { MaineComponent } from './view/maine/maine.component';
+import { PagenotfoundComponent } from './view/pagenotfound/pagenotfound.component';
+
+import { RouterModule } from "@angular/router";
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataMemory } from './memory/data-memory.component';
+import { DataService } from "./service/data.service";
+import {BasketService} from "./service/basket.service";
+
+const RouterConfig = [
+  { path: '', component: MaineComponent },
+  { path: 'basket', component: BasketComponent},
+  { path: '**', component: PagenotfoundComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    BasketComponent,
+    GoodsComponent,
+    MaineComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    InMemoryWebApiModule.forRoot( DataMemory ),
+    RouterModule.forRoot( RouterConfig )
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ DataService, BasketService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

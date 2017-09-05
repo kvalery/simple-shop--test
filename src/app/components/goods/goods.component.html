@@ -1,0 +1,28 @@
+<div class="gods-voiew row">
+
+  <div *ngFor="let good of goods "
+       [ngClass]="{'col-md-4': !viewType, 'col-md-12': viewType}"
+       class="good good-in-table col-md-4">
+
+    <h3 class="good-title">{{ good.name}}</h3>
+
+    <img class="img-thumbnail good-img"
+         alt="100x100"
+         src="https://www.iphones.ru/wp-content/uploads/2014/07/parcel-1.jpg"> <br>
+
+    <p class="good-info">
+      {{'price -' + good.price}}
+    </p>
+
+    <p class="good-info">
+      {{ good.description}}
+    </p>
+
+    <button type="button" class="btn btn-default" (click)="addToBascet(good)">add to basket</button>
+
+  </div>
+
+</div>
+
+
+

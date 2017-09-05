@@ -1,0 +1,17 @@
+<div class="container">
+
+  <p>
+    sam data for buyer...
+  </p>
+
+  <button type="button"
+          class="btn btn-default"
+          (click)="chengView()"> change View </button>
+  <hr>
+
+  <app-goods *ngIf="goodsCollection.length"
+             [goods] = 'goodsCollection'
+             [viewType]='typeOfView' ></app-goods>
+
+</div>
+<hr>

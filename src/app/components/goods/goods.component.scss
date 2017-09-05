@@ -1,0 +1,22 @@
+.gods-voiew{
+  display: inline-block;
+  width: 100%;
+  .good{
+      padding: 5px;
+    .good-img{
+      max-height: 100px;
+    }
+
+    .good-title{
+      display: block;
+
+    }
+
+    .good-info{
+      @extend .good-title
+    }
+
+  }
+}
+
+
